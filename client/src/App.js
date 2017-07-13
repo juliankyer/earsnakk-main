@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+const io = require('socket.io-client');
+const socket = io();
 
 class App extends Component {
+  
+  componentDidMount() {
+    console.log('boom');
+    socket.on('connection', function() {
+      console.log('sockets are connected');
+    });
+  }
   render() {
     return (
       <div className="App">
